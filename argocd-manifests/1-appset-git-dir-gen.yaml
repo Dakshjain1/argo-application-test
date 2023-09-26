@@ -8,28 +8,24 @@ spec:
   - git:
       repoURL: https://github.com/Dakshjain1/argo-application-test.git
       revision: HEAD
-      files:
-      - path: "charts/*/cluster-config/**/config.json"
+      directories:
+      - path: charts/*/values/*
   template:
     metadata:
-      name: '{{path[1]}}-{{cluster.name}}-{{cluster.namespace}}'
+      name: '{{path[1]}}-{{path.basename}}'
     spec:
       project: default
-      sources:
-      - repoURL: 'https://github.com/SvavaCapital/helm-charts'
-        targetRevision: INFRA-1287
-        ref: override
-      - repoURL: https://github.com/Dakshjain1/argo-application-test.git
+      source:
+        repoURL: https://github.com/Dakshjain1/argo-application-test.git
         targetRevision: HEAD
         path: 'charts/{{path[1]}}'
         helm:
           valueFiles:
-            - '$override/charts/{{path[1]}}/values/values.yaml'
-            - 'values/{{cluster.name}}/values.yaml'
-            - 'values/values.yaml'
+            - 'values/values.yamla'
+            - 'values/{{path.basename}}/values.yaml'
       destination:
-        server: '{{cluster.server}}'
-        namespace: '{{cluster.namespace}}'
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
