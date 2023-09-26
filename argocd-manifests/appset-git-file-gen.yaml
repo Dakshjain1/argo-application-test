@@ -8,11 +8,11 @@ spec:
   - git:
       repoURL: https://github.com/Dakshjain1/argo-application-test.git
       revision: HEAD
-      directories:
-      - path: charts/*/values/*
+      files:
+      - path: "charts/*/cluster-config/**/config.json"
   template:
     metadata:
-      name: '{{path[1]}}-{{path.basename}}'
+      name: '{{path[1]}}-{{cluster.namespace}}'
     spec:
       project: default
       source:
@@ -21,11 +21,11 @@ spec:
         path: 'charts/{{path[1]}}'
         helm:
           valueFiles:
-            - 'values/{{path.basename}}/values.yaml'
+            - 'values/{{cluster.namespace}}/values.yaml'
             - 'values/values.yaml'
       destination:
-        server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        server: '{{cluster.server}}'
+        namespace: '{{cluster.namespace}}'
       syncPolicy:
         automated:
           prune: true

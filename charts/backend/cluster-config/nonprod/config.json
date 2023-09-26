@@ -2,6 +2,7 @@
     "cluster": {
       "name": "nonprod",
       "server": "https://kubernetes.default.svc",
-      "override": "values"
+      "override": "values",
+      "namespace": "uat-d"
     }
 }
