@@ -1,0 +1,8 @@
+{
+    "cluster": {
+      "name": "prodau",
+      "server": "https://kubernetes.default.svc",
+      "override": "values",
+      "namespace": "production-au"
+    }
+}

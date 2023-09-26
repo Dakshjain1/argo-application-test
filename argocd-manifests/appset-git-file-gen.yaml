@@ -12,7 +12,7 @@ spec:
       - path: "charts/*/cluster-config/**/config.json"
   template:
     metadata:
-      name: '{{path[1]}}-{{cluster.namespace}}'
+      name: '{{path[1]}}-{{cluster.name}}-{{cluster.namespace}}'
     spec:
       project: default
       source:
