@@ -8,6 +8,7 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
     cluster: {{ .Values.clusterName }}
+    test: "label"
 spec:
   replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: 3
