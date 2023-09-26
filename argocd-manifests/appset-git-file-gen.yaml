@@ -21,7 +21,7 @@ spec:
         path: 'charts/{{path[1]}}'
         helm:
           valueFiles:
-            - 'values/{{cluster.namespace}}/values.yaml'
+            - 'values/{{cluster.name}}/values.yaml'
             - 'values/values.yaml'
       destination:
         server: '{{cluster.server}}'

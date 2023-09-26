@@ -1,8 +1,8 @@
 {
     "cluster": {
-      "name": "nonprod",
+      "name": "stable-prod-au-v2",
       "server": "https://kubernetes.default.svc",
       "override": "values",
-      "namespace": "uat-d"
+      "namespace": "production"
     }
 }
