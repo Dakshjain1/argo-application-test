@@ -23,8 +23,8 @@ spec:
           ignoreMissingValueFiles: true
           valueFiles:
             - 'values/values.yaml'
-            - 'values/{{cluster.name}}/values.yaml.gotmpl'
-            - 'values/{{cluster.name}}/{{cluster.namespace}}/values.yaml.gotmpl'
+            - 'values/{{cluster.name}}/values.yaml'
+            - 'values/{{cluster.name}}/{{cluster.namespace}}/values.yaml'
       destination:
         server: '{{cluster.server}}'
         namespace: '{{cluster.namespace}}'
