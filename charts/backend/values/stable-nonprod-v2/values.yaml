@@ -1,1 +1,3 @@
 clusterName: "nonprod"
+image:
+  tag: "0.2"
