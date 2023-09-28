@@ -1,0 +1,4 @@
+image:
+  tag: {{ readFile "../../../versions/backend_nonprod.yaml" | fromYaml | pluck "backend_docker_image_tag"  | first | default "latest" | toYaml }}
+
+clusterName: "nonprod"

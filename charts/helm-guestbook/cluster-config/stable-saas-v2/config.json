@@ -1,0 +1,8 @@
+{
+    "cluster": {
+      "name": "stable-saas-v2",
+      "server": "https://kubernetes.default.svc",
+      "override": "values",
+      "namespace": "argo-test"
+    }
+}

@@ -1,0 +1,3 @@
+clusterName: "prodsg"
+image:
+  tag: {{ readFile "../../../versions/backend_prod.yaml" | fromYaml | pluck "backend_docker_image_tag"  | first | default "latest" | toYaml }}
