@@ -1,8 +1,0 @@
-{
-    "cluster": {
-      "name": "stable-nonprod-v2",
-      "server": "https://kubernetes.default.svc",
-      "override": "values",
-      "namespace": "uat-d"
-    }
-}
