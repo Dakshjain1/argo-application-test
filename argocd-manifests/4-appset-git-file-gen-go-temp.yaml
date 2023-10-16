@@ -29,7 +29,7 @@ spec:
             - 'values/{{.cluster.name}}/{{.cluster.namespace}}/values.yaml'
           values: |
             image:
-              tag: {{ readFile "../../../../versions/backend_nonprod.yaml" | fromYaml | pluck "backend_docker_image_tag"  | first | default "latest" | toYaml }}
+              tag: {{ readFile "../versions/backend_nonprod.yaml" | fromYaml | pluck "backend_docker_image_tag"  | first | default "latest" | toYaml }}
       destination:
         server: '{{.cluster.server}}'
         namespace: '{{.cluster.namespace}}'

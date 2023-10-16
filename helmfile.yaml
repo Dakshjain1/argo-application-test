@@ -1,0 +1,24 @@
+repositories:
+  - name: christianknell
+    url: https://christianknell.github.io/helm-charts
+
+releases:
+  - name: popeye
+    namespace: argo-test
+    chart: christianknell/popeye
+    values:
+      - cronJob:
+          outputFormat: "prometheus"
+
+  - name: helm-guestbook
+    labels:
+      service: helm-guestbook
+      shared: true
+    namespace: argo-test
+    wait: false
+    chart: ./charts/helm-guestbook
+    missingFileHandler: Warn
+    version: 2.15.3
+    values:
+      - "./charts/helm-guestbook/values/values.yaml.gotmpl"
+      - "./charts/helm-guestbook/values/stable-saas-v2/values.yaml.gotmpl"
