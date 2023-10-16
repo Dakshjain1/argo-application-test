@@ -9,5 +9,5 @@ releases:
     missingFileHandler: Warn
     version: 2.15.3
     values:
-      - "./charts/helm-guestbook/values/values.yaml.gotmpl"
+      - "./charts/helm-guestbook/values/values.yaml"
       - "./charts/helm-guestbook/values/stable-saas-v2/values.yaml.gotmpl"
