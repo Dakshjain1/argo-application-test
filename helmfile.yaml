@@ -1,16 +1,4 @@
-repositories:
-  - name: bitnami
-    url: https://charts.bitnami.com/bitnami
-
 releases:
-  - name: postgresql
-    namespace: default
-    chart: bitnami/postgresql
-    values:
-      - auth:
-          username: my-user
-          password: my-password
-
   - name: helm-guestbook
     labels:
       service: helm-guestbook
