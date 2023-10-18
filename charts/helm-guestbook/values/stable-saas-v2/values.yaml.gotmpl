@@ -1,4 +1,4 @@
-{{- $test_name := exec "vault" (list "read" "-format" "yaml" "saas/testing/name4") | fromYaml -}}
+{{- $test_name := exec "vault" (list "read" "-format" "yaml" "saas/testing/name1") | fromYaml -}}
 
 
 clusterName: "{{ $test_name.data.value }}-vault"
