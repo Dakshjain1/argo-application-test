@@ -1,0 +1,7 @@
+{
+    "cluster": {
+      "env": "prod-singapore",
+      "server": "https://kubernetes.default.svc",
+      "namespace": "argo-backend"
+    }
+}
