@@ -1,6 +1,6 @@
 {
     "cluster": {
-      "name": "nonprod-oregon",
+      "env": "nonprod-oregon",
       "server": "https://kubernetes.default.svc",
       "namespace": "argo-test"
     }
