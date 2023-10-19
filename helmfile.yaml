@@ -1,13 +1,42 @@
+environments:
+  saas-mumbai:
+    values:
+    - "./env-values/environment.yaml.gotmpl"
+    - "./env-values/saas-mumbai/environment.yaml.gotmpl"
+  # nonprod-oregon:
+  #   values:
+  #   - "../values/base/common.yaml.gotmpl"
+  #   - "../values/nonproduction/environment.yaml.gotmpl"
+  # prod-singapore:
+  #   values:
+  #   - "../values/base/common.yaml.gotmpl"
+  #   - "../values/production/environment.yaml.gotmpl"
+  # prod-sydney:
+  #   values:
+  #   - "../values/base/common.yaml.gotmpl"
+  #   - "../values/saas/environment.yaml.gotmpl"
+  # prod-hongkong:
+  #   values:
+  #   - "../values/base/common.yaml.gotmpl"
+  #   - "../values/production/environment.yaml.gotmpl"
+
+helmDefaults:
+  wait: true
+  timeout: 600
+  recreatePods: false
+  force: false
+  disableOpenAPIValidation: true
+
 releases:
   - name: helm-guestbook
     labels:
       service: helm-guestbook
       shared: true
-    namespace: argo-test
+    namespace: {{ .Environment.Values.guestbook_namespace }}
     wait: false
     chart: ./charts/helm-guestbook
     missingFileHandler: Warn
     version: 2.15.3
     values:
       - "./charts/helm-guestbook/values/values.yaml.gotmpl"
-      - "./charts/helm-guestbook/values/stable-saas-v2/values.yaml.gotmpl"
+      - "./charts/helm-guestbook/values/{{ .Environment.Name }}/values.yaml.gotmpl"
