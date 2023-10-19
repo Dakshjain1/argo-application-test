@@ -4,4 +4,4 @@
 clusterName: "{{ $test_name.data.value }}-vault"
 image:
   repository: gcr.io/heptio-images/ks-guestbook-demo
-  tag: {{ readFile "../../../../versions/backend_prod.yaml" | fromYaml | pluck "backend_docker_image_tag"  | first | default "latest" | toYaml }}
+  tag: {{ readFile "../../../../versions/guestbook_saas.yaml" | fromYaml | pluck "guestbook_docker_image_tag"  | first | default "latest" | toYaml }}

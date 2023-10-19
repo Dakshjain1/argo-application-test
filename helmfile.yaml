@@ -3,22 +3,22 @@ environments:
     values:
     - "./env-values/environment.yaml.gotmpl"
     - "./env-values/saas-mumbai/environment.yaml.gotmpl"
-  nonprod-oregon:
-    values:
-    - "./env-values/environment.yaml.gotmpl"
-    - "./env-values/nonprod-oregon/environment.yaml.gotmpl"
-  prod-singapore:
-    values:
-    - "./env-values/environment.yaml.gotmpl"
-    - "./env-values/prod-singapore/environment.yaml.gotmpl"
-  prod-sydney:
-    values:
-    - "./env-values/environment.yaml.gotmpl"
-    - "./env-values/prod-sydney/environment.yaml.gotmpl"
-  prod-hongkong:
-    values:
-    - "./env-values/environment.yaml.gotmpl"
-    - "./env-values/prod-hongkong/environment.yaml.gotmpl"
+  # nonprod-oregon:
+  #   values:
+  #   - "./env-values/environment.yaml.gotmpl"
+  #   - "./env-values/nonprod-oregon/environment.yaml.gotmpl"
+  # prod-singapore:
+  #   values:
+  #   - "./env-values/environment.yaml.gotmpl"
+  #   - "./env-values/prod-singapore/environment.yaml.gotmpl"
+  # prod-sydney:
+  #   values:
+  #   - "./env-values/environment.yaml.gotmpl"
+  #   - "./env-values/prod-sydney/environment.yaml.gotmpl"
+  # prod-hongkong:
+  #   values:
+  #   - "./env-values/environment.yaml.gotmpl"
+  #   - "./env-values/prod-hongkong/environment.yaml.gotmpl"
 
 helmDefaults:
   wait: true
@@ -38,12 +38,12 @@ releases:
       - "./charts/helm-guestbook/values/values.yaml.gotmpl"
       - "./charts/helm-guestbook/values/{{ .Environment.Name }}/values.yaml.gotmpl"
 
-  - name: helm-backend
-    labels:
-      service: helm-backend
-      shared: true
-    chart: ./charts/helm-backend
-    missingFileHandler: Warn
-    values:
-      - "./charts/helm-backend/values/values.yaml.gotmpl"
-      - "./charts/helm-backend/values/{{ .Environment.Name }}/values.yaml.gotmpl"
+  # - name: helm-backend
+  #   labels:
+  #     service: helm-backend
+  #     shared: true
+  #   chart: ./charts/helm-backend
+  #   missingFileHandler: Warn
+  #   values:
+  #     - "./charts/helm-backend/values/values.yaml.gotmpl"
+  #     - "./charts/helm-backend/values/{{ .Environment.Name }}/values.yaml.gotmpl"

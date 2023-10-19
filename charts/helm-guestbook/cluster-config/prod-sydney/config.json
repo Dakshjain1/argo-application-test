@@ -1,7 +1,0 @@
-{
-    "cluster": {
-      "env": "prod-sydney",
-      "server": "https://kubernetes.default.svc",
-      "namespace": "argo-test"
-    }
-}

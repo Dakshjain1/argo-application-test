@@ -1,7 +1,0 @@
-{{- $test_name := exec "vault" (list "read" "-format" "yaml" "saas/testing/name4") | fromYaml -}}
-
-
-clusterName: "{{ $test_name.data.value }}-vault"
-image:
-  repository: gcr.io/heptio-images/ks-guestbook-demo
-  tag: {{ readFile "../../../../versions/backend_nonprod.yaml" | fromYaml | pluck "backend_docker_image_tag"  | first | default "latest" | toYaml }}

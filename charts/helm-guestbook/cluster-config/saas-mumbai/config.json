@@ -1,0 +1,7 @@
+{
+  "cluster": {
+    "env": "saas-mumbai",
+    "server": "https://kubernetes.default.svc",
+    "namespace": "argo-test"
+  }
+}
