@@ -32,7 +32,6 @@ releases:
     labels:
       service: helm-guestbook
       shared: true
-    namespace: {{ .Environment.Values.guestbook_namespace }}
     wait: false
     chart: ./charts/helm-guestbook
     missingFileHandler: Warn
