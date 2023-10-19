@@ -3,22 +3,22 @@ environments:
     values:
     - "./env-values/environment.yaml.gotmpl"
     - "./env-values/saas-mumbai/environment.yaml.gotmpl"
-  # nonprod-oregon:
-  #   values:
-  #   - "../values/base/common.yaml.gotmpl"
-  #   - "../values/nonproduction/environment.yaml.gotmpl"
-  # prod-singapore:
-  #   values:
-  #   - "../values/base/common.yaml.gotmpl"
-  #   - "../values/production/environment.yaml.gotmpl"
-  # prod-sydney:
-  #   values:
-  #   - "../values/base/common.yaml.gotmpl"
-  #   - "../values/saas/environment.yaml.gotmpl"
-  # prod-hongkong:
-  #   values:
-  #   - "../values/base/common.yaml.gotmpl"
-  #   - "../values/production/environment.yaml.gotmpl"
+  nonprod-oregon:
+    values:
+    - "./env-values/environment.yaml.gotmpl"
+    - "./env-values/nonprod-oregon/environment.yaml.gotmpl"
+  prod-singapore:
+    values:
+    - "./env-values/environment.yaml.gotmpl"
+    - "./env-values/prod-singapore/environment.yaml.gotmpl"
+  prod-sydney:
+    values:
+    - "./env-values/environment.yaml.gotmpl"
+    - "./env-values/prod-sydney/environment.yaml.gotmpl"
+  prod-hongkong:
+    values:
+    - "./env-values/environment.yaml.gotmpl"
+    - "./env-values/prod-hongkong/environment.yaml.gotmpl"
 
 helmDefaults:
   wait: true
@@ -32,10 +32,18 @@ releases:
     labels:
       service: helm-guestbook
       shared: true
-    wait: false
     chart: ./charts/helm-guestbook
     missingFileHandler: Warn
-    version: 2.15.3
     values:
       - "./charts/helm-guestbook/values/values.yaml.gotmpl"
       - "./charts/helm-guestbook/values/{{ .Environment.Name }}/values.yaml.gotmpl"
+
+  - name: backend
+    labels:
+      service: backend
+      shared: true
+    chart: ./charts/backend
+    missingFileHandler: Warn
+    values:
+      - "./charts/backend/values/values.yaml.gotmpl"
+      - "./charts/backend/values/{{ .Environment.Name }}/values.yaml.gotmpl"

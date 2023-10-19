@@ -1,0 +1,7 @@
+{
+    "cluster": {
+      "name": "prod-singapore",
+      "server": "https://kubernetes.default.svc",
+      "namespace": "argo-test"
+    }
+}
