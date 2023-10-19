@@ -22,7 +22,7 @@ spec:
         helm:
           ignoreMissingValueFiles: true
           valueFiles:
-            - 'values/values.yaml'
+            - 'values/values.yaml.gotmpl'
             - 'values/{{cluster.env}}/values.yaml'
             - 'values/{{cluster.env}}/{{cluster.namespace}}/values.yaml'
       destination:

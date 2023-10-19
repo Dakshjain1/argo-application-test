@@ -1,25 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "helm-backend.fullname" . }}
+  name: {{ template "helm-guestbook.fullname" . }}
   labels:
-    app: {{ template "helm-backend.name" . }}
-    chart: {{ template "helm-backend.chart" . }}
+    app: {{ template "helm-guestbook.name" . }}
+    chart: {{ template "helm-guestbook.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
     cluster: {{ .Values.clusterName }}
-    test: "label"
 spec:
   replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ template "helm-backend.name" . }}
+      app: {{ template "helm-guestbook.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "helm-backend.name" . }}
+        app: {{ template "helm-guestbook.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
