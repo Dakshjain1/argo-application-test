@@ -12,7 +12,7 @@ spec:
       - path: "charts/*/cluster-config/**/config.json"
   template:
     metadata:
-      name: '{{path[1]}}-{{cluster.name}}-{{cluster.namespace}}'
+      name: '{{path[1]}}-{{cluster.env}}-{{cluster.namespace}}'
     spec:
       project: default
       source:
@@ -23,8 +23,8 @@ spec:
           ignoreMissingValueFiles: true
           valueFiles:
             - 'values/values.yaml'
-            - 'values/{{cluster.name}}/values.yaml'
-            - 'values/{{cluster.name}}/{{cluster.namespace}}/values.yaml'
+            - 'values/{{cluster.env}}/values.yaml'
+            - 'values/{{cluster.env}}/{{cluster.namespace}}/values.yaml'
       destination:
         server: '{{cluster.server}}'
         namespace: '{{cluster.namespace}}'
