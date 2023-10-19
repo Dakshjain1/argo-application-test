@@ -38,12 +38,12 @@ releases:
       - "./charts/helm-guestbook/values/values.yaml.gotmpl"
       - "./charts/helm-guestbook/values/{{ .Environment.Name }}/values.yaml.gotmpl"
 
-  - name: backend
+  - name: helm-backend
     labels:
-      service: backend
+      service: helm-backend
       shared: true
-    chart: ./charts/backend
+    chart: ./charts/helm-backend
     missingFileHandler: Warn
     values:
-      - "./charts/backend/values/values.yaml.gotmpl"
-      - "./charts/backend/values/{{ .Environment.Name }}/values.yaml.gotmpl"
+      - "./charts/helm-backend/values/values.yaml.gotmpl"
+      - "./charts/helm-backend/values/{{ .Environment.Name }}/values.yaml.gotmpl"
